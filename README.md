@@ -67,3 +67,9 @@ To deploy the app to a web server, simply set it to production and add your own 
 > IP addresses work too, but you should use a domain to be able to use Cloudflare's DDoS protection).
 
 SSL is strongly recommended, you can combine Cloudflare's full (strict) HTTPS with a self signed certificate using openssl for full end-to-end encryption.
+
+# Debugging
+Type `npm run debug` in your terminal to perform a full build and then server the app in watch mode. `npm run watch` if you are not using static assets.
+> VS Code lets you easily run npm scripts from the editor
+
+![i9G14KU 1](https://user-images.githubusercontent.com/36643731/123026088-378b3f00-d3a1-11eb-9dbb-873bf0a7e21e.png)
