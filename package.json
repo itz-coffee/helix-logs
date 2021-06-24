@@ -9,7 +9,7 @@
     "author": "wildflowericecoffee",
     "license": "MIT",
     "scripts": {
-        "build-sass": "sass src/public/scss/main.scss dist/public/css/main.css",
+        "build-sass": "sass src/public/css/main.scss dist/public/css/main.css",
         "build-ts": "tsc",
         "build": "npm run build-sass && npm run build-ts && npm run lint && npm run copy-static-assets",
         "copy-static-assets": "ts-node copyStaticAssets.ts",
@@ -21,7 +21,7 @@
         "test": "jest --forceExit --coverage --verbose",
         "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\"",
         "watch-node": "nodemon dist/server.js -e js,ejs",
-        "watch-sass": "sass --watch src/public/scss/main.scss dist/public/css/main.css",
+        "watch-sass": "sass --watch src/public/css/main.scss dist/public/css/main.css",
         "watch-test": "npm run test -- --watchAll",
         "watch-ts": "tsc -w",
         "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\""
