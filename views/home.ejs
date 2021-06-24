@@ -1,0 +1,19 @@
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta content="Logs" property="og:title">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://kit.fontawesome.com/670f8245fc.js" crossorigin="anonymous"></script>
+</head>
+
+<% if (!user) { %>
+<h2>Welcome! Please log in</h2>
+<p><a href="/auth/steam">Log in with Steam</a></p>
+<% } else { %>
+<h2 id="greeting">Hello, <%= user.displayName %></h2>
+<p><a href="/panel">Panel</a></p>
+<p><a href="/logout">Log out</a></p>
+<% } %>
+
+<p><a href="/account">Account</a></p>
