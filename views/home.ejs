@@ -29,7 +29,29 @@
     the MIT License, which requires the copyright notice in the footer to be visible in any distributions of this tool.
   </p>
 
+  <!-- Alert -->
+  <div class="alert bg-warning" role="alert" id="outdatedAlert" role="alert">
+    <strong>Warning!</strong> You have an outdated version of this tool, please contact your site
+    adminstrator to update it.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
   <%- include("partials/footer") %> <%- include("partials/scripts") %>
+
+  <script>
+    $(document).ready(function () {
+      $("#outdatedAlert").hide();
+      fetch("https://raw.githubusercontent.com/wildflowericecoffee/helix-logs/main/version.txt")
+        .then(response => response.text())
+        .then(version => {
+          if (version !== "1.0.0") {
+            $("#outdatedAlert").show();
+          }
+        })
+    })
+  </script>
 </body>
 
 </html>
