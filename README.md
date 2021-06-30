@@ -1,7 +1,7 @@
 # Helix Logs
 A logger for the Helix roleplaying framework written in Node.js with Typescript.
 
-If you enjoyed my project, consider adding a star ⭐.
+If you enjoyed my project, consider adding a star ⭐ or checking out my server [Aurora HL2RP](https://aurorahl2rp.com), which has used this tool at scale and in production before its release.
 
 # Features
 - Steam login
