@@ -7,35 +7,37 @@
 
 <body>
   <%- include("partials/header") %>
-  <div class="container pl-sm-0 pr-sm-0 pl-lg-3 pr-lg-3"></div>
+  <div class="container pl-sm-0 pr-sm-0 pl-lg-3 pr-lg-3">
+    <% if (!user) { %>
+    <h2>Welcome! Please log in</h2>
+    <% } else { %>
+    <h2 id="greeting">Hello, <%= user.displayName %></h2>
+    <% } %>
 
-  <% if (!user) { %>
-  <h2>Welcome! Please log in</h2>
-  <% } else { %>
-  <h2 id="greeting">Hello, <%= user.displayName %></h2>
-  <% } %>
+    <p>
+      Welcome to helix logs! A logger for the Helix roleplaying framework written in Node.js with Typescript. This tool
+      was made to help server staff access logs easily and search them with filters.
+    </p>
+    <p>
+      If you enjoyed my work, consider adding a star ⭐ on GitHub or checking out my server
+      <a href="https://aurorahl2rp.com">Aurora HL2RP</a>, which has used this tool at scale and in production before its
+      release.
+    </p>
+    <p>
+      Feel free to add your own branding in the header or even edit this introduction. However this tool is licensed
+      under
+      the MIT License, which requires the copyright notice in the footer to be visible in any distributions of this
+      tool.
+    </p>
 
-  <p>
-    Welcome to helix logs! A logger for the Helix roleplaying framework written in Node.js with Typescript. This tool
-    was made to help server staff access logs easily and search them with filters.
-  </p>
-  <p>
-    If you enjoyed my work, consider adding a star ⭐ on GitHub or checking out my server
-    <a href="https://aurorahl2rp.com">Aurora HL2RP</a>, which has used this tool at scale and in production before its
-    release.
-  </p>
-  <p>
-    Feel free to add your own branding in the header or even edit this introduction. However this tool is licensed under
-    the MIT License, which requires the copyright notice in the footer to be visible in any distributions of this tool.
-  </p>
-
-  <!-- Alert -->
-  <div class="alert bg-warning" role="alert" id="outdatedAlert" role="alert">
-    <strong>Warning!</strong> You have an outdated version of this tool, please contact your site
-    adminstrator to update it.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <!-- Alert -->
+    <div class="alert bg-warning" role="alert" id="outdatedAlert" role="alert">
+      <strong>Warning!</strong> You have an outdated version of this tool, please contact your site
+      adminstrator to update it.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
   </div>
 
   <%- include("partials/footer") %> <%- include("partials/scripts") %>
