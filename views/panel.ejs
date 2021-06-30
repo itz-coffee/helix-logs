@@ -147,13 +147,13 @@
               <%= log.id %>
             </th>
             <td>
-              <%= log.log_type %>
+              <%= log.type %>
             </td>
             <td>
-              <%= log.log_string %>
+              <%= log.string %>
             </td>
             <td>
-              <%= timeConverter(log.log_time) %>
+              <%= timeConverter(log.time) %>
             </td>
             <td>
               <% if (log.steamid !== undefined && log.steamid !== null) { %>
@@ -167,10 +167,10 @@
               <% } %>
             </td>
             <td>
-              <%= log.item_id %>
+              <%= log.itemid %>
             </td>
             <td>
-              <%= log.character_id %>
+              <%= log.charid %>
             </td>
           </tr>
           <% }) %>
