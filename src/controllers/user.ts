@@ -6,7 +6,8 @@ import { Request, Response } from "express";
  */
 export const account = (req: Request, res: Response): void => {
     res.render("account", {
-        user: req.user
+        user: req.user,
+        rank: req.session.rank
     });
 };
 

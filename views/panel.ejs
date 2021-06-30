@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <%- include("partials/head") %>
+</head>
+
+<body>
+  <%- include("partials/header") %>
+  <div class="container pl-sm-0 pr-sm-0 pl-lg-3 pr-lg-3"></div>
+
+  <% 
+    function timeConverter(UNIX_timestamp) {
+        var isAfternoon = false
+        const a = new Date(UNIX_timestamp * 1000)
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        const year = a.getFullYear()
+        const month = months[a.getMonth()]
+        const date = a.getDate()
+        var hour = a.getHours()
+        const min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes()
+        const sec = a.getSeconds() < 10 ? '0' + a.getSeconds() : a.getSeconds()
+
+        if (hour >= 12) {
+            isAfternoon = true
+            hour = hour == 12 ? 12 : hour - 12 
+        }
+
+        return `${month} ${date}, ${year} ${hour}:${min}:${sec} ${isAfternoon ? 'PM' : 'AM'}`
+    }
+  %>
+
+  <form id="logForm" action="#" method="GET">
+    <div class="form-group row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Message" name="string">
+      </div>
+
+      <div class="col">
+        <select name="type" id="type" class="custom-select">
+          <option value="">Log Type</option>
+          <option value="adminSpawnItemLog">adminSpawnItemLog</option>
+          <option value="areaAdd">areaAdd</option>
+          <option value="areaRemove">areaRemove</option>
+          <option value="buy">buy</option>
+          <option value="cfgSet">cfgSet</option>
+          <option value="charCreate">charCreate</option>
+          <option value="charDelete">charDelete</option>
+          <option value="charLoad">charLoad</option>
+          <option value="chat">chat</option>
+          <option value="closeContainer">closeContainer</option>
+          <option value="command">command</option>
+          <option value="connect">connect</option>
+          <option value="containerName">containerName</option>
+          <option value="containerPassword">containerPassword</option>
+          <option value="disconnect">disconnect</option>
+          <option value="duplicator">duplicator</option>
+          <option value="exploit">exploit</option>
+          <option value="inventoryAdd">inventoryAdd</option>
+          <option value="inventoryRemove">inventoryRemove</option>
+          <option value="inventoryTransfer">inventoryTransfer</option>
+          <option value="itemAction">itemAction</option>
+          <option value="itemDestroy">itemDestroy</option>
+          <option value="mapEntRemoved">mapEntRemoved</option>
+          <option value="money">money</option>
+          <option value="observerEnter">observerEnter</option>
+          <option value="observerExit">observerExit</option>
+          <option value="openContainer">openContainer</option>
+          <option value="persist">persist</option>
+          <option value="playerDeath">playerDeath</option>
+          <option value="playerHurt">playerHurt</option>
+          <option value="shipmentOrder">shipmentOrder</option>
+          <option value="shipmentTake">shipmentTake</option>
+          <option value="spawnEntity">spawnEntity</option>
+          <option value="spawnProp">spawnProp</option>
+          <option value="storageMoneyGive">storageMoneyGive</option>
+          <option value="storageMoneyTake">storageMoneyTake</option>
+          <option value="undo3dText">undo3dText</option>
+          <option value="vendorUse">vendorUse</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col">
+        <input type="number" class="form-control" placeholder="Steam ID" name="string">
+      </div>
+
+      <div class="col">
+        <input type="number" class="form-control" placeholder="Item ID" name="itemid">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col">
+        <input type="number" class="form-control" placeholder="Character ID" name="charid">
+      </div>
+
+      <div class="col">
+        <input type="text" class="form-control" id="datetime1" placeholder="After" name="after">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col">
+        <input type="text" class="form-control" id="datetime2" placeholder="Before" name="before">
+      </div>
+
+      <div class="col">
+        <input type="number" class="form-control" placeholder="Limit" name="limit">
+      </div>
+    </div>
+
+    <div class="form-group row">
+
+      <div class="col">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </form>
+
+  <div>
+    <table id="logTable" class="table table-dark table-striped table-bordered dt-responsive" style="width: 100;">
+      <colgroup>
+        <col class="id" />
+        <col class="type" />
+        <col class="log" />
+        <col class="time" />
+        <col class="steamid" />
+        <col class="itemid" />
+        <col class="charid" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Type</th>
+          <th scope="col">Log</th>
+          <th scope="col">Time</th>
+          <th scope="col">Steam ID</th>
+          <th scope="col">Item ID</th>
+          <th scope="col">Character ID</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% logs.forEach(function (log) { %>
+        <tr>
+          <th scope="log">
+            <%= log.id %>
+          </th>
+          <td>
+            <%= log.type %>
+          </td>
+          <td>
+            <%= log.string %>
+          </td>
+          <td>
+            <%= timeConverter(log.time) %>
+          </td>
+          <td>
+            <% if (log.steamid !== undefined && log.steamid !== null) { %>
+            <% if (log.steamid.substring(0, 1)=='9' ) { %>
+            BOT
+            <% } else { %>
+            <a class="text-white" href="https://steamid.io/lookup/<%=log.steamid%>">
+              <%= log.steamid %>
+            </a>
+            <% } %>
+            <% } %>
+          </td>
+          <td>
+            <%= log.itemid %>
+          </td>
+          <td>
+            <%= log.charid %>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <%- include("partials/footer") %> <%- include("partials/scripts") %>
+  <script>
+    $(document).ready(function () {
+      $('#logTable').dataTable({
+        "order": [[0, "desc"]]
+      })
+    })
+
+    $(document).ready(function () {
+      $("form").submit(function () {
+        $("input").each(function (index, obj) {
+          if ($(obj).val() == "") {
+            $(obj).remove()
+          }
+        })
+      })
+
+      $("#datetime1").focus(function () {
+        $(this).attr({ type: 'datetime-local' })
+      });
+
+      $("#datetime2").focus(function () {
+        $(this).attr({ type: 'datetime-local' })
+      })
+    })
+  </script>
+</body>
+
+</html>

@@ -28,12 +28,10 @@ export const index = async (req: Request, res: Response): Promise<void> => {
 
     const logs: LogEntry[] = await database.getLogs(req.query);
 
-    res.send(logs);
-
-    // res.render("panel", {
-    //     user: req.user,
-    //     logs: logs,
-    //     rank: rank
-    // });
+    res.render("panel", {
+        user: req.user,
+        logs: logs,
+        rank: rank
+    });
 };
 

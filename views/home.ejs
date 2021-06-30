@@ -1,19 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+
 <head>
-    <title>Home</title>
-    <meta charset="utf-8">
-    <meta content="Logs" property="og:title">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-    <script type="text/javascript" src="https://kit.fontawesome.com/670f8245fc.js" crossorigin="anonymous"></script>
+  <%- include("partials/head") %>
 </head>
 
-<% if (!user) { %>
-<h2>Welcome! Please log in</h2>
-<p><a href="/auth/steam">Log in with Steam</a></p>
-<% } else { %>
-<h2 id="greeting">Hello, <%= user.displayName %></h2>
-<p><a href="/panel">Panel</a></p>
-<p><a href="/logout">Log out</a></p>
-<% } %>
+<body>
+  <%- include("partials/header") %>
+  <div class="container pl-sm-0 pr-sm-0 pl-lg-3 pr-lg-3"></div>
 
-<p><a href="/account">Account</a></p>
+  <% if (!user) { %>
+  <h2>Welcome! Please log in</h2>
+  <% } else { %>
+  <h2 id="greeting">Hello, <%= user.displayName %></h2>
+  <% } %>
+
+  <p>
+    Welcome to helix logs! A logger for the Helix roleplaying framework written in Node.js with Typescript. This tool
+    was made to help server staff access logs easily and search them with filters.
+  </p>
+  <p>
+    If you enjoyed my work, consider adding a star ⭐ on GitHub or checking out my server
+    <a href="https://aurorahl2rp.com">Aurora HL2RP</a>, which has used this tool at scale and in production before its
+    release.
+  </p>
+  <p>
+    Feel free to add your own branding in the header or even edit this introduction. However this tool is licensed under
+    the MIT License, which requires the copyright notice in the footer to be visible in any distributions of this tool.
+  </p>
+
+  <%- include("partials/footer") %> <%- include("partials/scripts") %>
+</body>
+
+</html>

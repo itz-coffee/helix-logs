@@ -5,6 +5,8 @@
 
 @import "themes/default/default";
 
+$darkgrey: #242424;
+
 // Scaffolding
 // -------------------------
 
@@ -16,6 +18,17 @@ html {
 body {
   padding-top: 80px;
   margin-bottom: 75px;
+  margin-left: 1vh;
+  margin-right: 1vh;
+  background-color: $darkgrey;
+  color: white;
+  // padding: 80px, 1vh;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
 }
 
 footer {
@@ -23,8 +36,9 @@ footer {
   bottom: 0;
   width: 100%;
 
-  p, ul {
-    margin-bottom: 0;
+  p,
+  ul {
+    margin-bottom: 1vh;
   }
 }
 
@@ -42,6 +56,11 @@ textarea {
   width: 30px;
   height: 30px;
   margin: -15px 15px -15px;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: 200px;
 }
 
 // Alerts
