@@ -46,11 +46,11 @@ Rename the `.env.example` file to `.env` and fill out the environment variables
 | WEBSITE_DOMAIN                                  	| Your website's domain, used for redirecting to steam.                                                                  	|
 | PORT                                            	| The port your server listens on.                                                                                       	|
 | SSL (true/false)                                	| Whether you want the server to use HTTPS, you will need this if you have your SSL mode to full (strict) in cloudflare. 	|
-| SSL_CERT, SSL_KEY                                 | The absolute path of your SSL certificate and key if you are using HTTPS. You can create these with openssl.            |
+| SSL_CERT, SSL_KEY                                     | The absolute path of your SSL certificate and key if you are using HTTPS. You can create these with openssl.                  |
 | DATABASE (mysql/sqlite)                         	| What type of database you have.                                                                                        	|
 | SQLITE_PATH                                     	| The path where your sv.db file is located for sqlite.                                                                  	|
 | MYSQL_USER, MYSQL_PASS,<br>MYSQL_HOST, MYSQL_DB 	| Login credentials for mysql.                                                                                           	|
-| ADMIN_MOD (serverguard/ulx)                     	| The admin mod your server uses, currently only ULX and Serverguard are supported.                                      	|
+| ADMIN_MOD (serverguard/sam/ulx)                     	| The admin mod your server uses, currently only Serverguard, SAM and ULX are supported.                                      	|
 | STEAM_KEY                                       	| Steam API key, get yours at https://steamcommunity.com/dev/apikey.                                                     	|
 | ALLOWED_RANKS                                   	| List of allowed usergroups that can access the server logs, separated by semicolons.                                   	|
 - Build and run the project
