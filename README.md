@@ -9,7 +9,7 @@ If you enjoyed my project, consider adding a star ⭐ or checking out my server 
 - Steam login
 - Usergroup whitelist
 - MySQL and SQLite support
-- Serverguard and ULX support
+- Serverguard, SAM and ULX support
 - Search filters
   - Messages
   - Before and after dates
@@ -23,7 +23,7 @@ If you enjoyed my project, consider adding a star ⭐ or checking out my server 
 - [Node.js](https://nodejs.org/en/)
 - [Helix](https://github.com/NebulousCloud/helix) updated since May 11th, 2021
 - [SQL Helix Plugin](https://github.com/wildflowericecoffee/helix-plugins/tree/main/logger.lua)
-- An admin addon. Currently only [Serverguard](https://www.gmodstore.com/market/view/serverguard) and [ULX](https://github.com/TeamUlysses/ulx) are supported
+- An admin addon. Currently only [Serverguard](https://www.gmodstore.com/market/view/serverguard), [SAM](https://www.gmodstore.com/market/view/sam) and [ULX](https://github.com/TeamUlysses/ulx) are supported
 
 # Getting started
 - Clone the repository
