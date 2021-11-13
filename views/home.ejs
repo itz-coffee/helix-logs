@@ -48,7 +48,7 @@
       fetch("https://raw.githubusercontent.com/wildflowericecoffee/helix-logs/main/version.txt")
         .then(response => response.text())
         .then(version => {
-          if (version !== "1.0.2") {
+          if (version !== "1.0.3") {
             $("#outdatedAlert").show();
           }
         })
