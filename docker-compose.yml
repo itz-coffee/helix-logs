@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  helix-web-logs:
+    container_name: helix-web-logs
+    ports:
+      - "3000:3000"
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - WEBSITE_DOMAIN=${WEBSITE_DOMAIN}
+      - PORT=${PORT}
+      - SSL=${SSL}
+      - SSL_CERT=${SSL_CERT}
+      - SSL_KEY=${SSL_KEY}
+      - DATABASE=${DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASS=${MYSQL_PASS}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_PORT=${MYSQL_PORT}
+      - MYSQL_DB=${MYSQL_DB}
+      - ADMIN_MOD=${ADMIN_MOD}
+      - STEAM_KEY=${STEAM_KEY}
+      - ALLOWED_RANKS=${ALLOWED_RANKS}
+    hostname: logs.helix.local
+    network_mode: "bridge"
+    healthcheck:
+      test: ["CMD", "curl", "http://logs.helix.local:3000"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
