@@ -18,6 +18,7 @@ If you enjoyed my project, consider adding a star ⭐ or checking out my server 
   - Item ID's
 - HTTP and HTTPS support
 - Mobile friendly
+- Docker support
 
 # Requirements
 - [Node.js](https://nodejs.org/en/)
@@ -69,6 +70,13 @@ To deploy the app to a web server, simply set it to production and add your own 
 > IP addresses work too, but you should use a domain to be able to use Cloudflare's DDoS protection).
 
 SSL is strongly recommended, you can combine Cloudflare's full (strict) HTTPS with a self signed certificate using openssl for full end-to-end encryption.
+
+# Docker for advanced users (Optional)
+If you would like to use Docker, then create an .env file first like instructed above and then run the following command:
+```
+sudo docker-compose up -d
+```
+You'll be able to access the website by http://serveriphere:3000 or if you reverse proxy your domain to port 3000.
 
 # Debugging
 Type `npm run debug` in your terminal to perform a full build and then server the app in watch mode. `npm run watch` if you are not using static assets.
