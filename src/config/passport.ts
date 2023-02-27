@@ -21,9 +21,11 @@ passport.use(new SteamStrategy({
     returnURL: `${WEBSITE_DOMAIN}/auth/steam/return`,
     realm: WEBSITE_DOMAIN,
     apiKey: STEAM_KEY
-}, (identifier: any, profile: { identifier: any; }, done: (arg0: any, arg1: any) => any): void => {
+}, (identifier: never, profile: { identifier: never; }, done: (arg0: never, arg1: never) => never): void => {
     process.nextTick(() => {
         profile.identifier = identifier;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         return done(null, profile);
     });
 }));
