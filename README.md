@@ -18,6 +18,7 @@ If you enjoyed my project, consider adding a star ⭐ or checking out my server 
   - Item ID's
 - HTTP and HTTPS support
 - Mobile friendly
+- API ratelimiting support
 - Docker support
 
 # Requirements
