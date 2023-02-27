@@ -127,7 +127,7 @@ export class SqliteDatabase extends BaseDatabase {
     public async getRank(steamid: string): Promise<string | undefined> {
         const result = await this.db.get(this.adminQuery, this.userID(steamid));
 
-        return result[this.target];
+        return result[this.target as keyof typeof result];
     }
 
     public async getLogs(args: Query): Promise<LogEntry[]> {
@@ -160,7 +160,7 @@ export class MySqlDatabase extends BaseDatabase {
 
         const [, result] = Object.entries(rows)[0];
 
-        return result[this.target];
+        return result[this.target as keyof typeof result];
     }
 
     public async getLogs(args: Query): Promise<LogEntry[]> {
