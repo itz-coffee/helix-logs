@@ -19,7 +19,7 @@
     "serve": "node dist/server.js",
     "start": "npm run serve",
     "test": "jest --forceExit --coverage --verbose",
-    "setuptests": "node dist/setuptests.js",
+    "setuptests": "ts-node src/setuptests.ts",
     "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\"",
     "watch-node": "nodemon dist/server.js -e js,ejs",
     "watch-sass": "sass --watch src/public/css/main.scss dist/public/css/main.css",
